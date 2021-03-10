@@ -30,6 +30,13 @@ html {
   padding: 48px 24px 24px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 body {
@@ -59,6 +66,51 @@ body {
 img {
   max-width: 100%;
   vertical-align: top;
+}
+/* 
+    Components: Author
+*/
+
+.c-author {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  gap: 16px;
+}
+
+.c-author__image {
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
+}
+.c-author__name,
+.c-author__meta {
+  margin-bottom: 0;
+}
+.c-author__meta {
+  font-size: 14px;
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, arial, sans-serif;
+  line-height: 24px;
+}
+.c-author__name {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/*
+    Components: Article
+*/
+.c-article__header,
+.c-article__body {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.c-article__header {
+  padding: 24px 24px 0;
+}
+.c-article__body {
+  padding: 0 24px;
 }
 
 /*
@@ -165,34 +217,13 @@ a:hover,
 a:focus {
   color: #1abaff;
 }
-
 /* 
-    Components: Author
+    Utilities: max-width
+    ---
+    Utility classes to put specific max widths into elements
 */
-.c-author {
-  display: flex;
-  align-items: center;
-  margin-bottom: 24px;
-  gap: 16px;
-}
-
-.c-author__image {
-  width: 56px;
-  height: 56px;
-  border-radius: 100%;
-}
-.c-author__name,
-.c-author__meta {
-  margin-bottom: 0;
-}
-.c-author__meta {
-  font-size: 14px;
-  font-family: 'Inter', 'Helvetica Neue', Helvetica, arial, sans-serif;
-  line-height: 24;
-}
-.c-author__name {
-  font-size: 16px;
-  line-height: 24;
+.u-max-width-sm {
+  max-width: 36em;
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -203,9 +234,6 @@ a:focus {
 /* Medium devices (tablets, 768px and up) */
 
 @media (min-width: 768px) {
-  html {
-    padding: 48px 48px 24px;
-  }
   h1 {
     font-size: 58px;
     line-height: 64px;
@@ -215,6 +243,20 @@ a:focus {
 /* Large devices (landscape tablets, desktops, 992px and up) */
 
 @media (min-width: 992px) {
+  .c-author {
+    flex-direction: column;
+    align-items: start;
+  }
+  .c-article__body {
+    display: flex;
+    gap: 24px;
+  }
+  .c-article__author {
+    width: 25%;
+  }
+  .c-article__content {
+    width: 75%;
+  }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
